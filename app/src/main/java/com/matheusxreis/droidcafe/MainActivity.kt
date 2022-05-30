@@ -9,6 +9,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.matheusxreis.droidcafe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -55,4 +57,21 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+    public fun displayToast(message: String){
+        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public fun showDonutOrder(view: View){
+        displayToast(getString(R.string.donut_order_message))
+    }
+
+    public fun showIceCreamOrder(view: View){
+        displayToast(getString(R.string.ice_cream_order_message))
+    }
+
+    public fun showFroyoOrder(view: View){
+        displayToast(getString(R.string.froyo_order_message))
+    }
+
 }

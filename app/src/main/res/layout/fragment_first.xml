@@ -29,7 +29,7 @@
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
         android:contentDescription="@string/donut_description"
-
+        android:onClick="showDonutOrder"
         />
     <ImageView
         android:layout_width="wrap_content"
@@ -42,8 +42,7 @@
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
         android:contentDescription="@string/froyo_description"
-
-
+        android:onClick="showFroyoOrder"
 
         />
     <ImageView
@@ -57,9 +56,10 @@
         android:paddingEnd="24dp"
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
+        android:onClick="showIceCreamOrder"
         />
 
-     <TextView
+    <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/image_donut"
@@ -89,5 +89,7 @@
         android:text="@string/icecream_description"
 
         />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
