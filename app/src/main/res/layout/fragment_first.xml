@@ -24,8 +24,10 @@
         android:src="@drawable/donut_circle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_first"
-        android:layout_marginStart="24dp"
-        android:padding="24dp"
+        android:layout_marginStart="5dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
         android:contentDescription="@string/donut_description"
 
         />
@@ -36,7 +38,9 @@
         android:src="@drawable/froyo_circle"
         app:layout_constraintStart_toStartOf="@id/image_donut"
         android:id="@+id/image_froyo"
-        android:padding="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
         android:contentDescription="@string/froyo_description"
 
 
@@ -50,7 +54,9 @@
         app:layout_constraintStart_toStartOf="@id/image_donut"
         android:id="@+id/image_icecream"
         android:contentDescription="@string/icecream_description"
-        android:padding="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
         />
 
      <TextView
