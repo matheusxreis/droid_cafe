@@ -1,5 +1,6 @@
 package com.matheusxreis.droidcafe
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,6 +26,10 @@ class FirstFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
+        if(activity?.resources?.configuration?.orientation === Configuration.ORIENTATION_LANDSCAPE){
+
+           return View.inflate(context, R.layout.fragment_first_horizontal, null)
+        }
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -36,6 +41,14 @@ class FirstFragment : Fragment() {
         //binding.buttonFirst.setOnClickListener {
           //  findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         //}
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+
+        }
     }
 
     override fun onDestroyView() {

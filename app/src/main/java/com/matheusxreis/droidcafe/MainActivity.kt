@@ -12,12 +12,16 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.findFragment
+import androidx.navigation.NavController
 import com.matheusxreis.droidcafe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    var serviceOrder: String = ""
+    private lateinit var navController:NavController;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +31,15 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+
+        navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener { view ->
             if(navController.currentDestination?.id == R.id.FirstFragment) {
-                navController.navigate(R.id.actionFirstFragmentToSecondFragment)
+
+                    goNextFragment(serviceOrder)
             }
         }
     }
@@ -65,15 +71,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     public fun showDonutOrder(view: View){
-        displayToast(getString(R.string.donut_order_message))
+
+        serviceOrder = getString(R.string.donut_order_message)
+        displayToast(serviceOrder)
+
     }
 
     public fun showIceCreamOrder(view: View){
-        displayToast(getString(R.string.ice_cream_order_message))
+
+        serviceOrder = getString(R.string.ice_cream_order_message)
+        displayToast(serviceOrder)
+
     }
 
     public fun showFroyoOrder(view: View){
-        displayToast(getString(R.string.froyo_order_message))
+
+        serviceOrder = getString(R.string.froyo_order_message)
+        displayToast(serviceOrder)
+
+    }
+
+    private fun goNextFragment(args:String){
+
+        val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(args)
+        navController.navigate(action)
     }
 
 }
