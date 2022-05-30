@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.findFragment
 import com.matheusxreis.droidcafe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -31,8 +32,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            if(navController.currentDestination?.id == R.id.FirstFragment) {
+                navController.navigate(R.id.actionFirstFragmentToSecondFragment)
+            }
         }
     }
 
